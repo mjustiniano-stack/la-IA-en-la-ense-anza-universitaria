@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Artefacto de Agencia Transformadora</title>
+
+<!-- Mermaid -->
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #f9f9f9 0%, #eef4fb 100%);
+    color: #333;
+    min-height: 100vh;
+    padding: 30px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  header h1 {
+    color: #7d6608;
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  header p {
+    color: #666;
+    font-size: 15px;
+    font-style: italic;
+    margin-top: 8px;
+  }
+
+  .layout {
+    display: flex;
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    align-items: flex-start;
+  }
+
+  .diagram-container {
+    flex: 1.3;
+    background: #fff;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    border: 2px solid #b7950b;
+  }
+
+  .contenedor-principal {
+    height: auto;
+    min-height: max-content;
+    overflow: visible;
+    padding-bottom: 20px;
+  }
+
+  .grafico-scroll {
+    max-width: 100%;
+    overflow-x: auto;
+  }
+
+  .contenedor-botones {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+    box-sizing: border-box;
+    overflow-x: auto;
+  }
+
+  .artifact-label {
+    display: inline-block;
+    background: linear-gradient(135deg, #fff9d6 0%, #f9e79f 100%);
+    color: #7d6608;
+    border: 2px solid #b7950b;
+    border-radius: 12px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 15px;
+    box-shadow: 0 4px 12px rgba(183,149,11,0.12);
+    cursor: pointer;
+  }
+
+  .minor-label {
+    display: inline-block;
+    background: #d5f5e3;
+    color: #27ae60;
+    border: 1px solid #1e8449;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
+  }
+
+  .boton {
+    flex: 1 1 auto;
+    font-size: 11px;
+    padding: 8px 6px;
+    text-align: center;
+    white-space: nowrap;
+    box-sizing: border-box;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: inherit;
+    min-width: max-content;
+  }
+
+  .boton[aria-pressed="true"] {
+    outline: 2px solid currentColor;
+    outline-offset: 2px;
+  }
+
+  .texto-desplegable {
+    margin-top: 15px;
+    padding: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 40px;
+    color: #7d6608;
+    font-size: 14px;
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>ARTEFACTO DE AGENCIA TRANSFORMADORA</h1>
+  <p>El recorrido completo, no el producto</p>
+</header>
+
+<div class="layout">
+
+  <div class="diagram-container contenedor-principal">
+    <div class="grafico-scroll">
+    <pre class="mermaid">
+flowchart TD
+    subgraph NEGOCIACIÓN["NEGOCIACIÓN ITERATIVA CON LA IA"]
+        H["Humano<br/>(agencia transformadora)"]
+        IA["IA<br/>(artefacto mediador)"]
+        H -->|"Interacción"| IA
+        IA -->|"Iteración"| H
+        H -->|"Negociación crítica"| IA
+    end
+
+    NEGOCIACIÓN --> ART["ARTEFACTO DE AGENCIA TRANSFORMADORA<br/>(conjunto trazable, no producto aislado)"]
+
+    ART --> C1["(a) INTERACCIONES Y NEGOCIACIONES<br/>registradas en Zotero"]
+    ART --> C2["(b) FUENTES VERIFICADAS<br/>y contrastadas en Chicago"]
+    ART --> C3["(c) TEXTO FINAL<br/>con tesis propia diferenciable"]
+    ART --> C4["(d) REFLEXIÓN CRÍTICA<br/>sobre sesgos detectados"]
+
+    C1 --> D1["DOBLE TRANSFORMACIÓN"]
+    C2 --> D1
+    C3 --> D1
+    C4 --> D1
+
+    D1 --> T1["TRANSFORMACIÓN DE LA PRÁCTICA<br/>cambia cómo investigo,<br/>pregunto, verifico,<br/>leo y escribo"]
+    D1 --> T2["TRANSFORMACIÓN DE LOS SABERES<br/>incorporo nuevos conceptos,<br/>enfoques historiográficos<br/>y perspectivas de análisis"]
+
+    T1 --> P["PRÁCTICA TRANSFORMADA"]
+    T2 --> S["SABERES DISCIPLINARES<br/>TRANSFORMADOS"]
+
+    P --> R["RETROALIMENTACIÓN<br/>el ciclo se reinicia<br/>con mayor complejidad"]
+    S --> R
+    R --> NEGOCIACIÓN
+
+    style ART fill:#f9e79f,stroke:#b7950b,stroke-width:3px
+    style D1 fill:#f5b7b1,stroke:#c0392b,stroke-width:3px
+    style T1 fill:#d6eaf8,stroke:#2e86c1,stroke-width:2px
+    style T2 fill:#d5f5e3,stroke:#1e8449,stroke-width:2px
+    style P fill:#aed6f1,stroke:#2e86c1
+    style S fill:#a9dfbf,stroke:#1e8449
+    style NEGOCIACIÓN fill:#e8daef,stroke:#8e44ad
+    </pre>
+    </div>
+
+    <div class="contenedor-botones" role="group" aria-label="Conceptos y autores">
+      <button type="button" class="artifact-label boton" data-contenido="artefacto" aria-controls="desplegable" aria-pressed="false">ARTEFACTO</button>
+      <button type="button" class="artifact-label boton" data-contenido="agencia" aria-controls="desplegable" aria-pressed="false">AGENCIA TRANSFORMADORA</button>
+      <button type="button" class="minor-label boton" data-contenido="appadurai" aria-controls="desplegable" aria-pressed="false">ARJUN APPADURAI</button>
+      <button type="button" class="minor-label boton" data-contenido="kopytoff" aria-controls="desplegable" aria-pressed="false">IGOR KOPYTOFF</button>
+      <button type="button" class="minor-label boton" data-contenido="aagaard" aria-controls="desplegable" aria-pressed="false">TORIL AAGAARD Y ANDREAS LUND</button>
+    </div>
+
+    <section id="desplegable" class="texto-desplegable" aria-live="polite">
+      Selecciona un concepto o autor para leer la información...
+    </section>
+
+    <template id="contenido-artefacto">
+      <p>La IA no es una "herramienta inteligente" que se usa para obtener respuestas. Es un <strong>artefacto cultural</strong>: un objeto cuyo significado, valor y efectos no provienen de propiedades intrínsecas, sino que se construyen en la circulación social y la clasificación cultural, tal como plantean Appadurai y Kopytoff. En la interacción iterativa y la negociación crítica con la acción humana, este artefacto puede mediar la transformación de la práctica y de los saberes disciplinares: cambia cómo investigamos, preguntamos, verificamos, leemos y escribimos; y cambia los conceptos, enfoques y perspectivas con los que entendemos un campo de conocimiento. Pero esa transformación no está garantizada por el artefacto. Depende de la <strong>agencia transformadora</strong> del sujeto que negocia con él, tal como sostienen Aagaard y Lund: sin intervención crítica, el artefacto se degrada en mero objeto digital.</p>
+    </template>
+    <template id="contenido-agencia">
+      <p>El artefacto de agencia transformadora es el conjunto trazable de prompts registrados, fuentes verificadas, tesis propia y reflexión sobre sesgos; no es el resultado (imagen, texto, video, esquema, tabla, grafico, otro), sino el recorrido completo que evidencia transformación de la práctica y de nuestros saberes.</p>
+    </template>
+    <template id="contenido-appadurai">
+      <p>Para Arjun Appadurai, un artefacto no es una cosa con significado fijo, sino un objeto cuya vida social —su circulación, sus usos y sus trayectorias— produce su valor y su significado. El significado de las cosas no proviene de su materialidad, sino de las transacciones y motivaciones humanas, y está "inscrito en sus formas, sus usos y sus trayectorias". Appadurai propone analizar las cosas como si tuvieran vida social: nacen, circulan, se transforman y cambian de significado según los "regímenes de valor" en los que participan. Un mismo objeto puede moverse entre diferentes esferas: mercancía, regalo, reliquia, herencia. Este salto de una trayectoria a otra, que Appadurai llama "desviación de la ruta de la mercancía", está mediado por la cultura. En: Appadurai, Arjun. «Introduction: Commodities and the Politics of Value». En <em>The Social Life of Things: Commodities in Cultural Perspective</em>, editado por Arjun Appadurai, 3–63. Cambridge: Cambridge University Press, 1986.</p>
+    </template>
+    <template id="contenido-kopytoff">
+      <p>Kopytoff propone que las cosas tienen "biografías culturales", tal como las personas. La pregunta central es: ¿de dónde proviene la cosa, quién la hizo, cuál ha sido su trayectoria y cuáles son las “edades” reconocidas en su “vida”? Su método consiste en rastrear cómo un objeto entra y sale de la condición de mercancía a lo largo de su existencia. Un mismo objeto puede ser mercancía en un momento y dejar de serlo en otro, transformándose en regalo, reliquia o bien singularizado. La clave es que <strong>la mercantilización no es un hecho objetivo, sino un proceso cultural y cognitivo: cada sociedad define qué cosas pueden ser tratadas como mercancías y cuáles no.</strong> La "singularización" es el proceso inverso a la mercantilización: un objeto se vuelve único, no intercambiable, cargado de significado personal o colectivo. Kopytoff insiste en que el valor no está en la materialidad del objeto, sino en las clasificaciones y reclasificaciones culturales que lo atraviesan. El estudio biográfico revela lo que de otro modo permanecería oculto: las manos por las que pasó, los contextos que atravesó, los significados que acumuló. Así, un objeto es “una entidad culturalmente construida, dotada de significados culturalmente específicos, clasificada y reclasificada en categorías culturalmente constituidas”. En: Kopytoff, Igor. «The Cultural Biography of Things: Commoditization as Process». En <em>The Social Life of Things: Commodities in Cultural Perspective</em>, editado por Arjun Appadurai, 64–91. Cambridge: Cambridge University Press, 1986.</p>
+    </template>
+    <template id="contenido-aagaard">
+      <p>Aagaard y Lund entienden la IA no como una herramienta neutra, sino como un <strong>artefacto</strong> que media la actividad humana. Su apuesta central es desplazar el vocabulario de "herramienta" al de "artefacto", porque las herramientas se conciben como instrumentos pasivos que no afectan a quien las usa, mientras que los artefactos, en la interacción con el humano, <strong>modifican la práctica y transforman al agente</strong>. Las affordances de la IA —positivas o negativas— no están predeterminadas en el objeto ni en el sujeto: <strong>emergen en la interacción concreta</strong> entre agente, artefacto y práctica. En el marco de la "doble estimulación" de Vygotsky, el sujeto enfrenta un problema y se apoya en la IA como recurso para afrontarlo, y en ese proceso <strong>no solo cambia la situación, sino que se cambia a sí mismo</strong>. Por eso la IA participa en la constitución de lo que cuenta como conocimiento válido: su dimensión no es solo pedagógica, sino <strong>epistemológica</strong>. Pero su efecto transformador no está garantizado: depende de la <strong>agencia transformadora</strong> del sujeto que negocia con ella. Sin intervención crítica, la IA se degrada en mero objeto digital. La pregunta decisiva no es qué puede hacer la IA por nosotros, sino qué tipo de sujeto estamos dispuestos a devenir en la negociación con ella. En: Aagaard, Toril, y Andreas Lund. <em>Digital Agency in Higher Education: Transforming Teaching and Learning</em>. Abingdon, Oxon; New York: Routledge, 2020.</p>
+    </template>
+  </div>
+
+</div>
+
+<footer>
+</footer>
+
+<script>
+  mermaid.initialize({ startOnLoad: true });
+
+  const botones = document.querySelectorAll('.boton[data-contenido]');
+  const desplegable = document.getElementById('desplegable');
+
+  botones.forEach((boton) => {
+    boton.addEventListener('click', () => {
+      const plantilla = document.getElementById(`contenido-${boton.dataset.contenido}`);
+      desplegable.replaceChildren(plantilla.content.cloneNode(true));
+
+      botones.forEach((otroBoton) => {
+        otroBoton.setAttribute('aria-pressed', String(otroBoton === boton));
+      });
+    });
+  }); 
+</script>
+
+</body>
+</html>

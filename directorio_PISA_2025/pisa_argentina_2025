@@ -1,0 +1,83 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+from pathlib import Path
+
+OUTPUT_DIR = Path(__file__).resolve().parent
+
+# Configuración de estilo visual
+sns.set_theme(style="whitegrid")
+plt.rcParams['font.sans-serif'] = 'Arial'
+
+# 1. DATOS: Desempeño de Argentina por área en PISA 2025
+datos_argentina = {
+    "Área": ["Matemática", "Lectura", "Ciencias"],
+    "Puntaje Promedio": [367, 389, 393],
+    "Puesto Global (de 91)": [75, 62, 71],
+    "Puesto en Latinoamérica": [8, 8, 8],
+    "% Bajo Nivel Mínimo": [76, 59, 59]
+}
+
+df_arg = pd.DataFrame(datos_argentina)
+
+# 2. DATOS COMPARATIVOS: Selección de países (Promedio OCDE, Latam y destacados)
+comparativa_data = {
+    "País": ["Singapur", "Promedio OCDE", "Chile", "Uruguay", "México", "Argentina"],
+    "Matemática": [575, 472, 412, 409, 395, 367],
+    "Lectura": [543, 476, 448, 430, 415, 389],
+    "Ciencias": [561, 485, 444, 435, 410, 393]
+}
+
+df_comp = pd.DataFrame(comparativa_data)
+
+# --- VISUALIZACIÓN EN CONSOLA (TABLAS) ---
+print("=" * 60)
+print(" RESULTADOS DE ARGENTINA EN PISA 2025")
+print("=" * 60)
+print(df_arg.to_string(index=False))
+
+print("\n" + "=" * 60)
+print(" COMPARATIVA CON PAÍSES SELECCIONADOS Y PROMEDIO OCDE")
+print("=" * 60)
+print(df_comp.to_string(index=False))
+
+
+# --- GENERACIÓN DE GRÁFICOS PARA ANÁLISIS VISUAL ---
+
+# Gráfico 1: Desempeño de Argentina por área vs Porcentaje debajo del nivel mínimo
+fig, ax1 = plt.subplots(figsize=(9, 5))
+
+barras = ax1.bar(df_arg["Área"], df_arg["Puntaje Promedio"], color="#1f77b4", width=0.4, label="Puntaje Promedio")
+ax1.set_ylabel("Puntaje Promedio", color="#1f77b4", fontsize=12, fontweight='bold')
+ax1.set_ylim(0, 600)
+
+# Añadir valores sobre las barras
+for bar in barras:
+    yval = bar.get_height()
+    ax1.text(bar.get_x() + bar.get_width()/2, yval + 10, f"{int(yval)} pts", ha='center', va='bottom', fontweight='bold')
+
+ax1.set_title("Argentina en PISA 2025: Puntajes Promedio por Área", fontsize=14, fontweight='bold', pad=15)
+plt.tight_layout()
+plt.savefig(OUTPUT_DIR / "pisa_argentina_puntajes.png", dpi=150, bbox_inches="tight")
+plt.close(fig)
+
+
+# Gráfico 2: Comparativa Regional e Internacional (Ciencias - Área Principal 2025)
+plt.figure(figsize=(10, 6))
+df_sorted = df_comp.sort_values(by="Ciencias", ascending=True)
+
+colors = ["#2b5c8f" if pais == "Argentina" else "#a6c8e0" for pais in df_sorted["País"]]
+bars = plt.barh(df_sorted["País"], df_sorted["Ciencias"], color=colors, height=0.6)
+
+plt.xlabel("Puntaje Promedio en Ciencias", fontsize=12, fontweight='bold')
+plt.title("PISA 2025: Desempeño en Ciencias (Argentina vs Región y OCDE)", fontsize=14, fontweight='bold', pad=15)
+plt.xlim(0, 600)
+
+# Anotaciones
+for bar in bars:
+    xval = bar.get_width()
+    plt.text(xval + 5, bar.get_y() + bar.get_height()/2, f"{int(xval)}", ha='left', va='center', fontweight='bold')
+
+plt.tight_layout()
+plt.savefig(OUTPUT_DIR / "pisa_ciencias_comparativa.png", dpi=150, bbox_inches="tight")
+plt.close()
