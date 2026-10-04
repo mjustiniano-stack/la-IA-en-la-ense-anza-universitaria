@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intención historiográfica</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+  }
+
+  .cabecera h1 {
+    font-size: 23px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 8px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .seccion ul li strong {
+    color: var(--texto);
+  }
+
+  .destacado {
+    background: #fef9e7;
+    border-left: 4px solid #d4ac0d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #5c4a00;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #4a3c00; }
+
+  .referencia {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    line-height: 1.7;
+    margin-bottom: 10px;
+    padding-left: 22px;
+    text-indent: -22px;
+  }
+
+  footer.pagina {
+    max-width: 720px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera, .seccion { padding: 22px 22px; }
+    .cabecera h1 { font-size: 20px; }
+    .seccion h2 { font-size: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo1.html" class="volver">← Volver al Nodo 1</a>
+
+  <div class="cabecera">
+    <h1>Intención historiográfica</h1>
+    <p>Qué conlleva preguntar con intención en historia</p>
+  </div>
+
+  <div class="seccion">
+    <h2>¿Qué conlleva?</h2>
+    <p>No basta con preguntar «qué pasó»: hay que preguntar desde qué tradiciones, enfoques y perspectivas, contra cuáles y para qué comunidad fue escrito. Quiénes lo escribieron, quiénes lo financiaron.</p>
+    <p>Implica situarse en un debate disciplinar que demanda la explicitación de los supuestos epistemológicos, las metodologías, las fuentes y la reflexión crítica sobre los conceptos.</p>
+    <p>Reconocer la trazabilidad de la historia singular en esos conceptos, las políticas de memoria y de conocimiento en las cuales se inscriben.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Cómo emergió y se consolidó el concepto</h2>
+
+    <p>El concepto de <em>intención historiográfica</em> no tiene un único autor fundacional. Se sedimentó a lo largo de varias tradiciones y momentos:</p>
+
+    <ul>
+      <li><strong>La tradición idealista.</strong> Croce, Oakeshott y Collingwood plantearon que el pasado solo existe en la mente del historiador y que comprender una acción histórica exige reconstruir la intención del agente que la realizó. Para Collingwood, el historiador debe recrear el pasado en su propia mente.</li>
+
+      <li><strong>La Escuela de Cambridge.</strong> Quentin Skinner desplazó la pregunta desde «qué dice un texto» hacia «qué <em>hace</em> su autor al escribirlo». Introdujo la distinción entre intención y motivo, y entre acto ilocucionario y fuerza ilocucionaria. Su método intertextual exige contrastar el texto con las convenciones vigentes para determinar qué estaba haciendo el autor al escribirlo.</li>
+
+      <li><strong>La antropología y la historia antigua.</strong> El término <em>intentional history</em> fue acuñado por el antropólogo W. E. Mühlmann en el análisis de identidades étnicas, y luego Reinhard Wenskus lo hizo operativo para la historia. Hans-Joachim Gehrke lo rescató, lo reelaboró y lo convirtió en un concepto central de la historiografía griega antigua. Gehrke lo define como la historia en la autocomprensión de grupos sociales y comunidades, conectada con una comprensión correspondiente del otro, importante para la identidad colectiva, la cohesión social, el comportamiento político y la orientación cultural.</li>
+    </ul>
+
+    <div class="destacado">
+      <strong>En síntesis:</strong> la intención historiográfica emerge de la filosofía idealista, se afina con la Escuela de Cambridge y se consolida como categoría operativa en la obra de Gehrke sobre la Grecia antigua. No es un concepto unívoco: es una sedimentación de tradiciones que hoy confluyen en la exigencia de preguntar <em>desde dónde</em>, <em>contra quién</em> y <em>para qué comunidad</em> se escribe historia.
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2>Qué exige al preguntar</h2>
+    <ul>
+      <li>Declarar desde qué tradición, enfoque o perspectiva se habla.</li>
+      <li>Explicitar contra qué interpretaciones se discute.</li>
+      <li>Indicar para qué comunidad fue escrito el texto que se analiza.</li>
+      <li>Identificar quiénes lo escribieron y quiénes lo financiaron.</li>
+      <li>Explicitar los supuestos epistemológicos y las metodologías.</li>
+      <li>Justificar las fuentes y su selección.</li>
+      <li>Reflexionar críticamente sobre los conceptos que se usan.</li>
+      <li>Reconocer las políticas de memoria y de conocimiento en las que se inscribe la pregunta.</li>
+    </ul>
+
+    <div class="destacado">
+      <strong>En una frase:</strong> la intención historiográfica es lo que convierte una consulta a la IA en una intervención en el conocimiento histórico.
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2>Referencias</h2>
+
+    <p class="referencia">Collingwood, R. G. <em>The Idea of History</em>. Oxford: Clarendon Press, 1946.</p>
+
+    <p class="referencia">Croce, Benedetto. <em>History as the Story of Liberty</em>. London: George Allen & Unwin, 1941.</p>
+
+    <p class="referencia">Gehrke, Hans-Joachim. <em>Geschichte als Element antiker Kultur: Die Griechen und ihre Geschichte(n)</em>. Berlin: De Gruyter, 2014.</p>
+
+    <p class="referencia">Gehrke, Hans-Joachim. <em>The Greeks and Their Histories: Myth, History, and Society</em>. Traducido por Raymond Geuss. Cambridge: Cambridge University Press, 2023.</p>
+
+    <p class="referencia">Mühlmann, Wilhelm Emil. <em>Methodik der Völkerkunde</em>. Stuttgart: Enke, 1938.</p>
+
+    <p class="referencia">Oakeshott, Michael. <em>Experience and Its Modes</em>. Cambridge: Cambridge University Press, 1933.</p>
+
+    <p class="referencia">Skinner, Quentin. <em>The Foundations of Modern Political Thought</em>. Vol. 1. Cambridge: Cambridge University Press, 1978.</p>
+
+    <p class="referencia">Skinner, Quentin. «Meaning and Understanding in the History of Ideas». <em>History and Theory</em> 8, n.º 1 (1969): 3–53.</p>
+
+    <p class="referencia">Wenskus, Reinhard. <em>Stammesbildung und Verfassung: Das Werden der frühmittelalterlichen gentes</em>. Köln: Böhlau, 1961.</p>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo1.html">Volver al Nodo 1</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

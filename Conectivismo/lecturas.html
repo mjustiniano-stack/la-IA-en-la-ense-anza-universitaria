@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lecturas · Nodo 1</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cabecera .icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .cabecera h1 {
+    font-size: 22px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .destacado {
+    background: #fef9e7;
+    border-left: 4px solid #d4ac0d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #5c4a00;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #4a3c00; }
+
+  footer.pagina {
+    max-width: 780px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  footer.pagina a:hover { border-bottom-style: solid; }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera { flex-direction: column; text-align: center; padding: 22px 22px; }
+    .cabecera h1 { font-size: 19px; }
+    .seccion { padding: 22px 22px; }
+    .seccion h2 { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo1.html" class="volver">← Volver al Nodo 1</a>
+
+  <div class="cabecera">
+    <div class="icono">📚</div>
+    <div>
+      <h1>Lecturas: clásicas, de cátedra, de la negociación y actualización</h1>
+      <p>Cuatro tipos de lecturas que se articulan con la IA académica</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Lecturas</span>
+    <h2>Lecturas clásicas</h2>
+    <p>Obras fundamentales de la disciplina que constituyen el marco interpretativo heredado. Son el punto de partida obligado para cualquier investigación: sin conocer las preguntas y categorías que la tradición consolidó, no es posible situar una intervención propia.</p>
+    <p>En Historia, las lecturas clásicas permiten identificar el <strong>momento singular</strong> de la historiografía: la Historia como singular colectivo que abstrae la totalidad de las historias individuales.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Lecturas</span>
+    <h2>Bibliografía asignada por la cátedra u obligatoria</h2>
+    <p>Materiales de clase, puntos del programa y el programa de la asignatura. Esta bibliografía define el <strong>momento situado</strong>: el encuadre que la cátedra pone en juego aquí y ahora.</p>
+    <p>No es una lista neutral: expresa decisiones sobre qué problemas priorizar, qué autores leer y qué debates están vigentes en el aula.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Lecturas</span>
+    <h2>Lecturas que surgen de la negociación crítica con la IA</h2>
+    <p>Nuevas lecturas que emergen del diálogo con la IA: contraargumentos, perspectivas no consideradas, desplazamientos de escala, bibliografía complementaria.</p>
+    <p>Estas lecturas no reemplazan a las anteriores: las <strong>interrogan</strong>. La IA puede señalar direcciones, pero la verificación, la jerarquización y la decisión sobre qué leer quedan a cargo de quien investiga.</p>
+    <p>Este tercer tipo de lecturas corresponde a los <strong>momentos plurales</strong>: la apertura hacia historias en plural, con escalas, sujetos y perspectivas múltiples.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Actualización</span>
+    <h2>Importancia de la actualización bibliográfica e historiográfica</h2>
+    <p>La actualización no es acumulación de títulos: es <strong>revisión crítica del marco heredado</strong> a la luz de nuevas preguntas, nuevas fuentes y nuevos debates.</p>
+    <p>Sin actualización, la investigación reproduce marcos agotados. Con actualización, el investigador puede situar su intervención en el estado actual del campo.</p>
+    <p>La IA académica puede señalar direcciones, sugerir bibliografía complementaria y detectar debates emergentes. Pero la verificación, la jerarquización y la decisión sobre qué leer quedan a cargo de quien investiga.</p>
+
+    <div class="destacado">
+      <strong>En una frase:</strong> las cuatro lecturas no son capas estáticas sino momentos en tensión. La negociación crítica con la IA consiste en articularlas sin confundirlas y sin dejar que ninguna de ellas absorba a las demás.
+    </div>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo1.html">Volver al Nodo 1</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

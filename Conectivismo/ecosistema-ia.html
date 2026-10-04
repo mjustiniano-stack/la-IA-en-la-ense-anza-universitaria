@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ecosistema de IA · Nodo 1</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cabecera .icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .cabecera h1 {
+    font-size: 22px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .seccion ul li strong {
+    color: var(--texto);
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .destacado {
+    background: #fef9e7;
+    border-left: 4px solid #d4ac0d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #5c4a00;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #4a3c00; }
+
+  .destacado a {
+    color: #7d6608;
+    font-weight: 600;
+    word-break: break-all;
+    border-bottom: 2px dotted #7d6608;
+    text-decoration: none;
+  }
+
+  .destacado a:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 780px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  footer.pagina a:hover { border-bottom-style: solid; }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera { flex-direction: column; text-align: center; padding: 22px 22px; }
+    .cabecera h1 { font-size: 19px; }
+    .seccion { padding: 22px 22px; }
+    .seccion h2 { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo1.html" class="volver">← Volver al Nodo 1</a>
+
+  <div class="cabecera">
+    <div class="icono">🌐</div>
+    <div>
+      <h1>Ecosistema de IA, TIC y páginas web especializadas</h1>
+      <p>Los artefactos con los que se co-trabaja en el Nodo 1</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">IA</span>
+    <h2>IA generativas</h2>
+    <p>Herramientas que generan texto, responden preguntas, sintetizan información y permiten sostener una conversación iterativa. Son el núcleo del co-trabajo con IA en el Nodo 1.</p>
+    <ul>
+      <li><strong>SciSpace:</strong> análisis de PDFs, explicación de papers, asistencia en revisiones de literatura.</li>
+      <li><strong>Perplexity:</strong> búsqueda asistida por IA con citas y fuentes verificables.</li>
+      <li><strong>NotebookLM:</strong> análisis de documentos propios (PDFs, apuntes, materiales de clase).</li>
+      <li><strong>Elicit:</strong> automatización de búsqueda bibliográfica y extracción de información.</li>
+      <li><strong>Research Rabbit:</strong> exploración visual de redes de citas y literatura relacionada.</li>
+    </ul>
+    <p><strong>Nivel de exigencia:</strong> la selección de la IA generativa debe justificarse según la tarea y el momento historiográfico que se trabaja.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Búsqueda</span>
+    <h2>Buscadores académicos</h2>
+    <p>Herramientas que indexan literatura académica y permiten localizar artículos, capítulos y libros. No generan texto: recuperan fuentes existentes.</p>
+    <ul>
+      <li><strong>Google Académico:</strong> cobertura amplia, útil para exploración inicial y para encontrar versiones accesibles de textos citados.</li>
+      <li><strong>Semantic Scholar:</strong> indexación asistida por IA, útil para rastrear conexiones entre artículos y detectar literatura relacionada.</li>
+    </ul>
+    <p><strong>Nivel de exigencia:</strong> verificar la trazabilidad de cada fuente recuperada. Las citas deben poder reconstruirse en Zotero con formato Chicago.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Páginas web</span>
+    <h2>Páginas web especializadas</h2>
+    <p>Archivos, repositorios y bases de datos de acceso público que aportan materiales primarios y secundarios para la investigación histórica.</p>
+    <ul>
+      <li><strong>Scopus:</strong> base de citas multidisciplinar.</li>
+      <li><strong>Web of Science:</strong> base de citas y análisis de impacto.</li>
+      <li><strong>David Rumsey Map Collection:</strong> cartografía histórica y mapas digitalizados.</li>
+      <li><strong>JSTOR:</strong> artículos académicos y fuentes primarias digitalizadas.</li>
+      <li><strong>Project MUSE:</strong> humanidades y ciencias sociales.</li>
+      <li><strong>Internet Archive:</strong> textos, audio, video y capturas web históricas.</li>
+      <li><strong>HathiTrust:</strong> millones de volúmenes digitalizados.</li>
+      <li><strong>Persée:</strong> revistas científicas francesas en humanidades.</li>
+      <li><strong>Redalyc:</strong> revistas científicas de América Latina.</li>
+      <li><strong>SciELO:</strong> revistas científicas iberoamericanas.</li>
+      <li><strong>Otras:</strong> el estudiante puede incorporar las que use en su investigación.</li>
+    </ul>
+    <p><strong>Nivel de exigencia:</strong> cada fuente debe estar registrada en Zotero con citación completa en Chicago, y vinculada a la afirmación que respalda.</p>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Análisis</span>
+    <h2>Análisis textual y diacrónico</h2>
+    <p>Servicio web de análisis diacrónico que permite rastrear la evolución de conceptos y términos a lo largo del tiempo en corpus textuales amplios.</p>
+    <ul>
+      <li><strong>Google Ngram Viewer:</strong> frecuencia de aparición de términos y expresiones en millones de libros digitalizados. Útil para detectar desplazamientos semánticos y emergencia de categorías históricas.</li>
+    </ul>
+    <p><strong>Nivel de exigencia:</strong> el corpus de Google Ngram Viewer está sesgado hacia libros en inglés y hacia obras digitalizadas por Google. No reemplaza el análisis de fuentes primarias ni la lectura crítica de la bibliografía.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Guía de consulta</h2>
+    <p>Para la selección de IA académicas y para el registro ético de las interacciones, consultar:</p>
+
+    <div class="destacado">
+      <strong>La IA: un panorama</strong><br>
+      <a href="https://sites.google.com/eco.unsa.edu.ar/la-ia-un-panorama/p%C3%A1gina-principal" target="_blank" rel="noopener">https://sites.google.com/eco.unsa.edu.ar/la-ia-un-panorama/p%C3%A1gina-principal</a>
+    </div>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo1.html">Volver al Nodo 1</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

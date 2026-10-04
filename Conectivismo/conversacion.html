@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>La conversación como negociación crítica · Nodo 1</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cabecera .icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .cabecera h1 {
+    font-size: 22px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .seccion ul li strong {
+    color: var(--texto);
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .destacado {
+    background: #fef9e7;
+    border-left: 4px solid #d4ac0d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #5c4a00;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #4a3c00; }
+
+  .destacado a {
+    color: #7d6608;
+    font-weight: 600;
+    word-break: break-all;
+    border-bottom: 2px dotted #7d6608;
+    text-decoration: none;
+  }
+
+  .destacado a:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 780px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  footer.pagina a:hover { border-bottom-style: solid; }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera { flex-direction: column; text-align: center; padding: 22px 22px; }
+    .cabecera h1 { font-size: 19px; }
+    .seccion { padding: 22px 22px; }
+    .seccion h2 { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo1.html" class="volver">← Volver al Nodo 1</a>
+
+  <div class="cabecera">
+    <div class="icono">💬</div>
+    <div>
+      <h1>La conversación como secuencia de actos de negociación crítica</h1>
+      <p>Cada nuevo prompt es un nuevo acto de negociación</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Conversación</span>
+    <h2>Qué es la conversación con la IA</h2>
+    <p>La conversación con la IA es el espacio donde se <strong>itera, interacciona y negocia</strong>. No es una consulta única: es una secuencia de actos. Cada nuevo prompt que surge de la conversación es un <strong>nuevo acto de negociación</strong>, porque cambia lo que se pregunta, lo que se espera y el momento historiográfico en el que se inscribe la consulta.</p>
+    <p>La conversación no es lineal. Es un recorrido con avances, retrocesos, reformulaciones y correcciones. En términos conectivistas, corresponde a la <em>sensemaking interaction</em>: un proceso colaborativo que incluye discusión, negociación, reflexión y toma de decisiones.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Qué debe evidenciar la conversación</h2>
+    <p>En esta etapa, la conversación debe evidenciar que quien investiga:</p>
+    <ul>
+      <li><strong>Distingue</strong> entre el momento singular, el momento situado y los momentos plurales.</li>
+      <li><strong>Verifica</strong> qué afirma la IA sobre cada momento con fuentes de archivo.</li>
+      <li><strong>Contrasta</strong> las afirmaciones de la IA con la bibliografía asignada.</li>
+      <li><strong>Reformula</strong> el prompt cuando la IA mezcla momentos o no explicita la intención historiográfica.</li>
+      <li><strong>Registra</strong> las iteraciones en Zotero como parte del artefacto.</li>
+    </ul>
+  </div>
+
+  <div class="seccion">
+    <h2>Los tres momentos de la historiografía en la conversación</h2>
+    <ul>
+      <li><strong>Momento singular:</strong> la Historia como singular colectivo que abstrae la totalidad de las historias individuales (Koselleck).</li>
+      <li><strong>Momento situado:</strong> el encuadre que la cátedra pone en juego aquí y ahora.</li>
+      <li><strong>Momentos plurales:</strong> la apertura hacia historias en plural, con escalas, sujetos y perspectivas múltiples.</li>
+    </ul>
+    <p>Cada nuevo prompt puede desplazar la conversación de un momento a otro. La negociación crítica consiste en <strong>reconocer desde qué momento habla la IA</strong> y en reformular el prompt cuando la respuesta mezcla momentos sin distinguirlos.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Nivel de exigencia</h2>
+    <p>La conversación debe mostrar <strong>iteraciones documentadas</strong>, no una aceptación acrítica de la primera respuesta.</p>
+    <p>Sin negociación crítica, la conversación produce un objeto digital. Con ella, produce un artefacto de agencia transformadora.</p>
+
+    <div class="destacado">
+      <strong>Recuerda:</strong> la conversación completa debe registrarse en Zotero como <em>Página web</em>, con una <em>nota hija</em> que preserve el contenido íntegro de la interacción. En Historia se cita en el estilo de Chicago, con nota completa al pie y referencia en la bibliografía.
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2>Subpáginas relacionadas</h2>
+    <ul>
+      <li><a href="prompt.html" class="enlace-subpagina">Ver la guía completa del prompt →</a></li>
+      <li><a href="intencion.html" class="enlace-subpagina">Ver la guía completa de intención historiográfica →</a></li>
+      <li><a href="iaenzotero.html" class="enlace-subpagina">Ver la guía completa de IA en Zotero →</a></li>
+    </ul>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo1.html">Volver al Nodo 1</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

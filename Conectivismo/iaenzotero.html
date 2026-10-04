@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IA en Zotero · Nodo 1</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cabecera .icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .cabecera h1 {
+    font-size: 22px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .seccion ul li strong {
+    color: var(--texto);
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .campo {
+    background: color-mix(in srgb, var(--color) 6%, white);
+    border-left: 4px solid var(--color);
+    border-radius: 8px;
+    padding: 12px 16px;
+    margin-bottom: 12px;
+  }
+
+  .campo h3 {
+    font-size: 13px;
+    color: var(--color);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 4px;
+  }
+
+  .campo p {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    margin: 0;
+  }
+
+  .destacado {
+    background: #fef9e7;
+    border-left: 4px solid #d4ac0d;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #5c4a00;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #4a3c00; }
+
+  .destacado a {
+    color: #7d6608;
+    font-weight: 600;
+    word-break: break-all;
+    border-bottom: 2px dotted #7d6608;
+    text-decoration: none;
+  }
+
+  .destacado a:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 780px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  footer.pagina a:hover { border-bottom-style: solid; }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera { flex-direction: column; text-align: center; padding: 22px 22px; }
+    .cabecera h1 { font-size: 19px; }
+    .seccion { padding: 22px 22px; }
+    .seccion h2 { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo1.html" class="volver">← Volver al Nodo 1</a>
+
+  <div class="cabecera">
+    <div class="icono">🗂️</div>
+    <div>
+      <h1>IA en Zotero</h1>
+      <p>Cómo registrar las interacciones con IA para que sean trazables</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Trazabilidad</span>
+    <h2>¿Qué es la trazabilidad?</h2>
+    <p>La trazabilidad es la posibilidad de reconstruir el recorrido completo de una investigación: qué se preguntó, a qué artefacto, en qué momento, con qué respuesta y qué se hizo con ella.</p>
+    <p>La transparencia es la decisión ética de hacer público ese recorrido.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>¿Por qué importa?</h2>
+    <p>Sin trazabilidad no hay forma de distinguir entre un <strong>artefacto de agencia transformadora</strong> y un <strong>objeto digital</strong>.</p>
+    <p>El registro no es burocracia: es la condición de posibilidad de la evaluación y de la propia agencia.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Cómo registrarlo en Zotero</h2>
+
+    <div class="campo">
+      <h3>Tipo de ítem</h3>
+      <p>Página web.</p>
+    </div>
+
+    <div class="campo">
+      <h3>Título</h3>
+      <p>El prompt completo o un resumen preciso.</p>
+    </div>
+
+    <div class="campo">
+      <h3>Autor</h3>
+      <p>El nombre de la IA y su versión.</p>
+    </div>
+
+    <div class="campo">
+      <h3>Título del sitio</h3>
+      <p>La empresa desarrolladora.</p>
+    </div>
+
+    <div class="campo">
+      <h3>Fecha</h3>
+      <p>La fecha de la conversación.</p>
+    </div>
+
+    <div class="campo">
+      <h3>URL</h3>
+      <p>El enlace público, si existe.</p>
+    </div>
+
+    <div class="campo">
+      <h3>Nota hija</h3>
+      <p>La conversación mantenida debe copiarse en una nota hija vinculada al ítem, para preservar el contenido íntegro de la interacción.</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2>Recordatorio de citación</h2>
+    <p>En Historia se cita en el estilo de Chicago, con nota completa al pie y referencia en la bibliografía.</p>
+
+    <div class="destacado">
+      <strong>Guía de referencia:</strong> Georgetown University Library, «Media and AI Literacy in GU-Q: Citing AI with Zotero». <a href="https://guides.qatar.georgetown.edu/c.php?g=1527182&p=11638403" target="_blank" rel="noopener">https://guides.qatar.georgetown.edu/c.php?g=1527182&p=11638403</a>
+    </div>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo1.html">Volver al Nodo 1</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
