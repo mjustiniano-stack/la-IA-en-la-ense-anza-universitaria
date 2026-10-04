@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nodo 1 · Acoplamiento digital y exploración del ecosistema de IA</title>
+<style>
+  :root {
+    --color: #b7950b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.6;
+    padding: 40px 20px;
+  }
+
+  .pagina-nodo {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover {
+    border-bottom-style: solid;
+  }
+
+  .nodo-cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nodo-cabecera .numero-grande {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .nodo-cabecera h1 {
+    font-size: 24px;
+    color: var(--color);
+    line-height: 1.3;
+  }
+
+  .nodo-cabecera .subtitulo {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-top: 6px;
+  }
+
+  .grid-interno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  .columna {
+    padding: 24px 26px;
+    border-right: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .columna:last-child { border-right: none; }
+
+  .columna h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+  }
+
+  .columna p, .columna li {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+
+  .columna ul { list-style: none; padding: 0; }
+  .columna ul > li { padding-left: 18px; position: relative; }
+  .columna ul > li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .principio-conectivista {
+    background: color-mix(in srgb, var(--color) 8%, white);
+    border-left: 3px solid var(--color);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  .principio-conectivista strong {
+    color: var(--color);
+    font-style: normal;
+  }
+
+  .pregunta {
+    background: color-mix(in srgb, var(--color) 6%, white);
+    border-left: 3px solid var(--color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-style: italic;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .evidencia {
+    background: #fef9e7;
+    border-left: 3px solid #d4ac0d;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .evidencia strong { color: #7d6608; }
+
+  .insumo-bloque { margin-bottom: 18px; }
+
+  .insumo-bloque strong {
+    display: block;
+    color: var(--texto);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  .nota-interna {
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin: 4px 0 0 0;
+    padding-left: 10px;
+    border-left: 2px solid color-mix(in srgb, var(--color) 30%, white);
+  }
+
+  .nota-interna em { color: var(--color); font-style: italic; font-weight: 600; }
+
+  .lecturas-conectadas {
+    list-style: none;
+    padding-left: 22px;
+    border-left: 2px dashed color-mix(in srgb, var(--color) 40%, white);
+    margin-left: 10px;
+  }
+
+  .lecturas-conectadas li {
+    font-size: 13px;
+    color: var(--texto-suave);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .lecturas-conectadas li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .termino-tooltip {
+    position: relative;
+    border-bottom: 2px dotted var(--color);
+    cursor: help;
+    font-weight: 600;
+    color: var(--color);
+    display: inline;
+  }
+
+  .termino-tooltip .tooltip-contenido {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 440px;
+    max-width: 90vw;
+    background: #fff;
+    border: 2px solid var(--color);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    font-weight: normal;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #444;
+    text-align: left;
+    z-index: 100;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+    max-height: 70vh;
+    overflow-y: auto;
+  }
+
+  .termino-tooltip .tooltip-contenido::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--color);
+  }
+
+  .termino-tooltip .tooltip-contenido strong {
+    display: block;
+    color: var(--color);
+    font-size: 12.5px;
+    margin-bottom: 4px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .termino-tooltip .tooltip-contenido strong:first-child { margin-top: 0; }
+
+  .termino-tooltip .tooltip-contenido p { margin: 0 0 8px 0; font-size: 12.5px; color: #555; }
+
+  .termino-tooltip:hover .tooltip-contenido,
+  .termino-tooltip:focus .tooltip-contenido { visibility: visible; opacity: 1; }
+
+  footer.pagina {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  @media (max-width: 600px) {
+    .nodo-cabecera { flex-direction: column; text-align: center; }
+    .termino-tooltip .tooltip-contenido { width: 280px; font-size: 12px; padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina-nodo">
+
+  <a href="index.html" class="volver">← Volver al índice</a>
+
+  <div class="nodo-cabecera">
+    <div class="numero-grande">1</div>
+    <div>
+      <h1>Acoplamiento digital y exploración del ecosistema de IA</h1>
+      <p class="subtitulo">Conectivismo, agencia transformadora y artefacto cultural</p>
+    </div>
+  </div>
+
+  <div class="grid-interno">
+
+    <!-- ===== COLUMNA 1 ===== -->
+    <div class="columna">
+      <h3>Red de conocimiento e insumos</h3>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Fuentes</span>
+        <strong>Fuentes de información</strong>
+        <ul class="lecturas-conectadas">
+          <li>Materiales de clase</li>
+          <li>Puntos del programa de la asignatura</li>
+          <li>El programa</li>
+        </ul>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">IA</span>
+        <strong>Co-trabajo con la IA</strong>
+        <p class="nota-interna">Importancia del <span class="termino-tooltip" tabindex="0">prompt o petición<span class="tooltip-contenido">
+          <strong>¿Qué es?</strong>
+          <p>El prompt no es una simple pregunta: es el <em>primer acto de negociación con la IA</em>. Define el rol que le asignas, la tarea que le encomiendas, el formato que exiges y el contexto en el que debe situarse.</p>
+          <strong>¿Qué debe considerar?</strong>
+          <p><strong>Rol:</strong> ¿quién debe ser la IA?<br>
+          <strong>Tarea:</strong> ¿qué debe hacer exactamente?<br>
+          <strong>Formato:</strong> ¿cómo quieres la salida?<br>
+          <strong>Contexto:</strong> ¿en qué debate disciplinar se inscribe?</p>
+          <strong>Plantilla sugerida</strong>
+          <p><strong>[ROL]</strong> Actúa como especialista en historia, con formación en historiografía, crítica de fuentes y análisis de escalas múltiples, espaciales y/o temporales.</p>
+          <p><strong>[TAREA]</strong> Analiza críticamente cómo la historiografía precedente construyó y aportó al concepto de [objeto de análisis]. Identifica sus supuestos epistemológicos, sus metodologías y las voces que incluyó y omitió. Sitúa ese concepto en una perspectiva de historias plurales, glocales, globales y conectadas. Señala qué desplazamientos analíticos habilitan esas escalas. Propón al menos una línea de contraargumentación.</p>
+          <p><strong>[CONTEXTO]</strong> Esta consulta se realiza en el marco de una investigación sobre [tema más amplio]. Las fuentes consideradas incluyen materiales de clase, puntos del programa de la asignatura, el programa, bibliografía, otros. El objetivo no es obtener un resumen, sino un contrapunto crítico que permita situar una argumentación propia y reconocer los aportes de la historiografía precedente antes de proponer una lectura propia.</p>
+          <p><strong>[FORMATO]</strong> Presenta tu respuesta en tres secciones: (1) síntesis del marco interpretativo dominante y de sus aportes; (2) identificación de al menos dos sesgos, omisiones o límites de escala; (3) una línea de contraargumentación con bibliografía verificable.</p>
+        </span></span>: formular una solicitud precisa, situada y con intención historiográfica.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Ética</span>
+        <strong>Trazabilidad y transparencia</strong>
+        <p class="nota-interna"><span class="termino-tooltip" tabindex="0">Registro en Zotero<span class="tooltip-contenido">
+          <strong>¿Qué es?</strong>
+          <p>La trazabilidad es la posibilidad de reconstruir el recorrido completo de una investigación: qué se preguntó, a qué artefacto, en qué momento, con qué respuesta y qué se hizo con ella. La transparencia es la decisión ética de hacer público ese recorrido.</p>
+          <strong>¿Por qué importa?</strong>
+          <p>Sin trazabilidad no hay forma de distinguir entre un artefacto de agencia transformadora y un objeto digital.</p>
+          <strong>Cómo registrarlo en Zotero</strong>
+          <p><strong>Tipo de ítem:</strong> Página web.</p>
+          <p><strong>Título:</strong> el prompt completo o un resumen preciso.</p>
+          <p><strong>Autor:</strong> el nombre de la IA y su versión.</p>
+          <p><strong>Título del sitio:</strong> la empresa desarrolladora.</p>
+          <p><strong>Fecha:</strong> la fecha de la conversación.</p>
+          <p><strong>URL:</strong> el enlace público, si existe.</p>
+          <p><strong>Nota hija:</strong> la conversación debe copiarse en una nota hija vinculada al ítem.</p>
+          <strong>Recordatorio</strong>
+          <p>En Historia se cita en el estilo de Chicago, con nota completa al pie y referencia en la bibliografía.</p>
+          <strong>Guía de referencia</strong>
+          <p>Georgetown University Library, «Media and AI Literacy in GU-Q: Citing AI with Zotero»: https://guides.qatar.georgetown.edu/c.php?g=1527182&p=11638403</p>
+        </span></span>: documentar el prompt, el artefacto, la fecha y la respuesta obtenida.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Resultado</span>
+        <strong>Primer artefacto de agencia transformadora</strong>
+      </div>
+
+      <div class="principio-conectivista">
+        <strong>Principio conectivista:</strong> diversidad de opiniones y conexión de nodos.
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 2 ===== -->
+    <div class="columna">
+      <h3>Acoplamiento digital: TIC e IA académicas</h3>
+
+      <p>Las <strong>TIC</strong> y la <strong>IA académica</strong> se articulan para profundizar en tres tipos de lecturas:</p>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Lecturas</span>
+        <strong>Lecturas clásicas</strong>
+        <p class="nota-interna">Obras fundamentales de la disciplina.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Lecturas</span>
+        <strong>Bibliografía asignada por la cátedra u obligatoria</strong>
+        <p class="nota-interna">Materiales de clase, puntos del programa y el programa.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Lecturas</span>
+        <strong>Lecturas que surgen de la negociación crítica con la IA</strong>
+        <p class="nota-interna">Contraargumentos, perspectivas no consideradas, desplazamientos de escala.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Actualización</span>
+        <strong>Importancia de la actualización bibliográfica e historiográfica</strong>
+        <p class="nota-interna">Revisión crítica del marco heredado a la luz de nuevas preguntas.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Prompt</span>
+        <strong>El prompt como acto de negociación que emerge de las conexiones y la agencia humana</strong>
+        <p class="nota-interna">El prompt no es una pregunta neutral: define el rol de la IA, la tarea, el formato y el contexto disciplinar. En esta etapa, el prompt se complejiza porque debe articular <strong>tres momentos de la historiografía</strong>:</p>
+        <ul class="lecturas-conectadas">
+          <li><strong>Momento singular:</strong> la Historia como singular colectivo que abstrae la totalidad de las historias individuales (Koselleck).</li>
+          <li><strong>Momento situado:</strong> el encuadre que la cátedra pone en juego aquí y ahora.</li>
+          <li><strong>Momentos plurales:</strong> la apertura hacia historias en plural, con escalas, sujetos y perspectivas múltiples.</li>
+        </ul>
+        <p class="nota-interna">El prompt debe pedir a la IA que <strong>distinga entre esos tres momentos</strong> y que explicite la <strong>intención historiográfica</strong> que subyace a cada uno.</p>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> el prompt debe declarar en qué momento se inscribe la consulta y con qué otros momentos entra en tensión.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Conversación</span>
+        <strong>La conversación como secuencia de actos de negociación crítica</strong>
+        <p class="nota-interna">Cada nuevo prompt que surge de la conversación es un <strong>nuevo acto de negociación</strong>. La conversación debe evidenciar que quien investiga distingue entre los tres momentos, verifica con fuentes de archivo, contrasta con la bibliografía, reformula el prompt y registra las iteraciones en Zotero.</p>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> iteraciones documentadas, no aceptación acrítica de la primera respuesta.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">IA</span>
+        <strong>Co-trabajo ampliado con TIC e IA académicas</strong>
+        <ul class="lecturas-conectadas">
+          <li><strong>IA generativas:</strong> SciSpace, Perplexity, NotebookLM, Elicit, Research Rabbit</li>
+          <li><strong>Buscadores académicos:</strong> Google Académico, Semantic Scholar</li>
+          <li><strong>Páginas web especializadas:</strong> Scopus, Web of Science, David Rumsey Map Collection, JSTOR, Project MUSE, Internet Archive, HathiTrust, Persée, Redalyc, SciELO, otras</li>
+          <li><strong>Análisis textual y diacrónico:</strong> Google Ngram Viewer</li>
+        </ul>
+        <p class="nota-interna">Guía de consulta: <a href="https://sites.google.com/eco.unsa.edu.ar/la-ia-un-panorama/p%C3%A1gina-principal" target="_blank" rel="noopener">La IA: un panorama</a></p>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> selección justificada según el momento historiográfico que se trabaja.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Huella</span>
+        <strong>Trazabilidad: artefactos, prompts y conversaciones</strong>
+        <p class="nota-interna">Registro como <em>Página web</em> en Zotero, con título, autor (IA y versión), sitio (empresa), fecha, URL si existe, y <em>nota hija</em> con la conversación completa.</p>
+        <p class="nota-interna">En Historia se cita en el estilo de Chicago, con nota completa al pie y referencia en la bibliografía.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Sesgos</span>
+        <strong>Sesgos historiográficos y algorítmicos</strong>
+        <p class="nota-interna">La IA reproduce los sesgos del corpus con el que fue entrenada. Esos sesgos son historiográficos: el momento singular, la teleología, el eurocentrismo, la linealidad temporal.</p>
+        <p class="nota-interna"><strong>Operación crítica:</strong> identificar en cada respuesta qué <strong>momento historiográfico</strong> se reproduce.</p>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> registrar al menos un sesgo detectado y el momento historiográfico desde el que la IA responde.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Omisiones</span>
+        <strong>Omisiones algorítmicas y cómo evitarlas</strong>
+        <p class="nota-interna">La IA omite lo que no dice: voces subalternas, sujetos no occidentales, mujeres, comunidades indígenas, temporalidades no teleológicas.</p>
+        <ul class="lecturas-conectadas">
+          <li>Preguntar por lo ausente</li>
+          <li>Contrastar con fuentes de archivo</li>
+          <li>Reformular el prompt</li>
+          <li>Registrar la omisión en Zotero</li>
+          <li>Construir la red con lecturas que la IA no consideró</li>
+        </ul>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> registrar al menos una omisión detectada y la operación para subsanarla.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Agencia</span>
+        <strong>Agencia digital frente a sesgos y omisiones</strong>
+        <p class="nota-interna">No delegar la interpretación histórica en el algoritmo. No aceptar la primera respuesta como definitiva. Identificar el momento historiográfico que la IA reproduce. Reconstruir voces y escalas omitidas. Registrar el recorrido completo.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Resultado</span>
+        <strong>Segundo artefacto de agencia transformadora</strong>
+        <p class="nota-interna">Resultado del co-trabajo ampliado y de la actualización bibliográfica.</p>
+        <p class="nota-interna"><strong>Nivel de exigencia:</strong> transformación de práctica y saberes; reconocimiento de los momentos historiográficos.</p>
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 3 ===== -->
+    <div class="columna">
+      <h3>Preguntas de autoevaluación</h3>
+      <div class="pregunta">¿Elegí el artefacto de IA adecuado según sus capacidades?</div>
+      <div class="pregunta">¿Formulé un prompt historiográficamente situado y lo documenté en Zotero?</div>
+      <div class="pregunta">¿Las fuentes fueron correctas, suficientes, adecuadas?</div>
+      <div class="pregunta">¿Declaré en qué momento historiográfico se inscribe mi consulta?</div>
+      <div class="pregunta">¿Detecté al menos un sesgo y una omisión en la respuesta de la IA?</div>
+      <div class="pregunta">¿Registré la conversación en una nota hija en Zotero?</div>
+    </div>
+
+    <!-- ===== COLUMNA 4 ===== -->
+    <div class="columna">
+      <h3>Evidencias e indicadores docentes</h3>
+      <div class="evidencia"><strong>Criterio de selección:</strong> justificación del artefacto elegido según el momento historiográfico que se trabaja.</div>
+      <div class="evidencia"><strong>Trazabilidad ética:</strong> prompt y referencia inicial en Zotero en formato Chicago full note, con nota hija.</div>
+      <div class="evidencia"><strong>Comprensión:</strong> se presenta el texto elaborado y se explica la trazabilidad.</div>
+      <div class="evidencia"><strong>Sesgos y omisiones:</strong> registro de al menos un sesgo y una omisión detectados por interacción.</div>
+    </div>
+
+  </div>
+
+  <footer class="pagina">
+    Nodo 1 · Co-trabajo con la IA: 4 nodos para aprender · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
