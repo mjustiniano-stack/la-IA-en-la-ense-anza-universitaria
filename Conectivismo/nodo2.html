@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nodo 2 · Mediación crítica, deconstrucción de enfoques y co-trabajo historiográfico</title>
+<style>
+  :root {
+    --color: #2e86c1;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.65;
+    padding: 40px 20px;
+  }
+
+  .pagina-nodo {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .nodo-cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nodo-cabecera .numero-grande {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .nodo-cabecera h1 {
+    font-size: 24px;
+    color: var(--color);
+    line-height: 1.3;
+  }
+
+  .nodo-cabecera .subtitulo {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-top: 6px;
+  }
+
+  .grid-interno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  .columna {
+    padding: 24px 26px;
+    border-right: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .columna:last-child { border-right: none; }
+
+  .columna h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+  }
+
+  .columna p, .columna li {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+
+  .columna ul { list-style: none; padding: 0; }
+  .columna ul > li { padding-left: 18px; position: relative; }
+  .columna ul > li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .principio-conectivista {
+    background: color-mix(in srgb, var(--color) 8%, white);
+    border-left: 3px solid var(--color);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  .principio-conectivista strong {
+    color: var(--color);
+    font-style: normal;
+  }
+
+  .pregunta {
+    background: color-mix(in srgb, var(--color) 6%, white);
+    border-left: 3px solid var(--color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-style: italic;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .evidencia {
+    background: #eaf4fd;
+    border-left: 3px solid #2e86c1;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .evidencia strong { color: #1f618d; }
+
+  .insumo-bloque { margin-bottom: 18px; }
+
+  .insumo-bloque strong {
+    display: block;
+    color: var(--texto);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  .nota-interna {
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin: 4px 0 0 0;
+    padding-left: 10px;
+    border-left: 2px solid color-mix(in srgb, var(--color) 30%, white);
+  }
+
+  .nota-interna em { color: var(--color); font-style: italic; font-weight: 600; }
+
+  .lecturas-conectadas {
+    list-style: none;
+    padding-left: 22px;
+    border-left: 2px dashed color-mix(in srgb, var(--color) 40%, white);
+    margin-left: 10px;
+  }
+
+  .lecturas-conectadas li {
+    font-size: 13px;
+    color: var(--texto-suave);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .lecturas-conectadas li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .operacion {
+    display: flex;
+    gap: 12px;
+    padding: 12px 14px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    border-left: 4px solid var(--color);
+    background: color-mix(in srgb, var(--color) 5%, white);
+  }
+
+  .operacion-icono {
+    font-size: 22px;
+    color: var(--color);
+    font-weight: bold;
+    flex-shrink: 0;
+    line-height: 1;
+  }
+
+  .operacion strong {
+    display: block;
+    color: var(--color);
+    font-size: 13px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .operacion p {
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    margin: 0;
+    line-height: 1.55;
+  }
+
+  .operacion-itera { background: #eaf4fd; }
+  .operacion-interacciona { background: #f0f9f4; }
+  .operacion-negocia { background: #fdf3f2; }
+
+  .termino-tooltip {
+    position: relative;
+    border-bottom: 2px dotted var(--color);
+    cursor: help;
+    font-weight: 600;
+    color: var(--color);
+    display: inline;
+  }
+
+  .termino-tooltip .tooltip-contenido {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 380px;
+    max-width: 90vw;
+    background: #fff;
+    border: 2px solid var(--color);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.15);
+    font-weight: normal;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: #444;
+    text-align: left;
+    z-index: 100;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+    pointer-events: none;
+  }
+
+  .termino-tooltip .tooltip-contenido::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: var(--color);
+  }
+
+  .termino-tooltip .tooltip-contenido strong {
+    display: block;
+    color: var(--color);
+    font-size: 12.5px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+  }
+
+  .termino-tooltip .tooltip-contenido p {
+    margin: 0 0 8px 0;
+    font-size: 12.5px;
+    color: #555;
+  }
+
+  .termino-tooltip:hover .tooltip-contenido,
+  .termino-tooltip:focus .tooltip-contenido {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .enlace-subpagina {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12.5px;
+    border-bottom: 2px dotted var(--color);
+    pointer-events: auto;
+  }
+
+  .enlace-subpagina:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  @media (max-width: 600px) {
+    .nodo-cabecera { flex-direction: column; text-align: center; }
+    .termino-tooltip .tooltip-contenido { width: 260px; font-size: 12px; padding: 12px 14px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina-nodo">
+
+  <a href="index.html" class="volver">← Volver al índice</a>
+
+  <div class="nodo-cabecera">
+    <div class="numero-grande">2</div>
+    <div>
+      <h1>Mediación crítica, deconstrucción de enfoques y co-trabajo historiográfico</h1>
+      <p class="subtitulo">Conectivismo, agencia transformadora y artefacto cultural</p>
+    </div>
+  </div>
+
+  <div class="grid-interno">
+
+    <!-- ===== COLUMNA 1 ===== -->
+    <div class="columna">
+      <h3>Red de conocimiento e insumos</h3>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Lecturas</span>
+        <strong>Lecturas clásicas, específicas y actualizadas</strong>
+        <p class="nota-interna">Tres tipos de lecturas que se ponen en tensión en la mediación crítica.</p>
+        <a href="lecturas.html" class="enlace-subpagina">Ver la guía completa de lecturas →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">IA</span>
+        <strong>IA académica y de investigación</strong>
+        <p class="nota-interna">Artefactos generativos y buscadores para la deconstrucción de enfoques.</p>
+        <a href="ecosistema-ia.html" class="enlace-subpagina">Ver el ecosistema completo de IA →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Búsqueda</span>
+        <strong>Google Académico</strong>
+        <p class="nota-interna">Localización de bibliografía clave y asignada.</p>
+      </div>
+
+      <div class="principio-conectivista">
+        <strong>Principio conectivista:</strong> el conocimiento puede residir en artefactos no humanos. Aprender es reconocer y evaluar esos nodos.
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 2 ===== -->
+    <div class="columna">
+      <h3>Deconstrucción y operaciones del co-trabajo</h3>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Sesgos</span>
+        <strong>Sesgos historiográficos y algorítmicos</strong>
+        <p class="nota-interna">Eurocentrismo, temporalidades lineales, narrativas teleológicas.</p>
+        <a href="sesgos.html" class="enlace-subpagina">Ver la guía completa de sesgos →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Omisiones</span>
+        <strong>Omisiones algorítmicas y cómo evitarlas</strong>
+        <p class="nota-interna">Voces subalternas, sujetos no occidentales, temporalidades no teleológicas.</p>
+        <a href="omisiones.html" class="enlace-subpagina">Ver la guía completa de omisiones →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Agencia</span>
+        <strong>Agencia y autonomía</strong>
+        <p class="nota-interna">Confrontación crítica entre el texto de la IA y la bibliografía de autor/a.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Remezcla</span>
+        <strong>Remezcla de contenido</strong>
+        <p class="nota-interna">Uso de la IA para formular contraargumentos y situar procesos históricos complejos.</p>
+      </div>
+
+      <h3 style="margin-top:22px;">Operaciones del co-trabajo con la IA</h3>
+
+      <div class="operacion operacion-itera">
+        <span class="operacion-icono">↻</span>
+        <div><strong>Itera</strong><p>Reformula la pregunta y vuelve a consultar la IA para profundizar, corregir o ampliar la respuesta.</p></div>
+      </div>
+
+      <div class="operacion operacion-interacciona">
+        <span class="operacion-icono">↔</span>
+        <div><strong>Interacciona</strong><p>Dialoga con la IA y con las lecturas: contrasta, pregunta, responde, compara fuentes.</p></div>
+      </div>
+
+      <div class="operacion operacion-negocia">
+        <span class="operacion-icono">⇄</span>
+        <div><strong>Negocia</strong><p>Decide qué conservar, qué rechazar y qué reformular del texto de la IA, preservando la <span class="termino-tooltip" tabindex="0">intención historiográfica<span class="tooltip-contenido">
+          <strong>¿Qué conlleva?</strong>
+          <p>No basta con preguntar «qué pasó»: hay que preguntar desde qué tradiciones, enfoques y perspectivas, contra cuáles y para qué comunidad fue escrito. Quiénes lo escribieron, quiénes lo financiaron.</p>
+          <a href="intencion.html" class="enlace-subpagina">Ver la guía completa de intención historiográfica →</a>
+        </span></span>.</p></div>
+      </div>
+
+      <div class="principio-conectivista">
+        <strong>Principio conectivista:</strong> la negociación con la IA es un tema de negociación. Sin mediación crítica, el texto de la IA se convierte en objeto digital.
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 3 ===== -->
+    <div class="columna">
+      <h3>Preguntas de autoevaluación</h3>
+      <div class="pregunta">¿Identifiqué enfoques, conceptos, autores, políticas de conocimiento, obras?</div>
+      <div class="pregunta">¿Pude sacar a la IA de la zona de confort teleológica? ¿Cómo?</div>
+      <div class="pregunta">¿Utilicé la IA para contraargumentar, profundizar e interrogar la bibliografía asignada?</div>
+      <div class="pregunta">¿Leí nueva bibliografía? ¿Cuál? ¿Qué aportó para la comprensión?</div>
+      <div class="pregunta">¿Escribí una síntesis propia que supere o integre el borrador de la IA?</div>
+      <div class="pregunta">¿Compartí con el grupo?</div>
+    </div>
+
+    <!-- ===== COLUMNA 4 ===== -->
+    <div class="columna">
+      <h3>Evidencias e indicadores docentes</h3>
+      <div class="evidencia"><strong>Análisis de sesgos:</strong> registro explícito de los límites y condicionamientos culturales del artefacto digital.</div>
+      <div class="evidencia"><strong>Nivel de la remezcla:</strong> texto explicativo que demuestra independencia intelectual del algoritmo.</div>
+      <div class="evidencia"><strong>Mediación crítica:</strong> evidencias de iteración, interacción y negociación documentadas en Zotero.</div>
+      <div class="evidencia"><strong>Intención historiográfica:</strong> explicitación del momento historiográfico desde el que se negocia.</div>
+    </div>
+
+  </div>
+
+  <footer class="pagina">
+    Nodo 2 · Co-trabajo con la IA: 4 nodos para aprender · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

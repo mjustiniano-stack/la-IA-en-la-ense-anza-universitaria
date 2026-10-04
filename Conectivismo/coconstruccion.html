@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Co-construcción colaborativa · Nodo 3</title>
+<style>
+  :root {
+    --color: #27ae60;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.75;
+    padding: 40px 20px;
+  }
+
+  .pagina {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 28px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .cabecera .icono {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .cabecera h1 {
+    font-size: 22px;
+    color: var(--color);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+
+  .cabecera p {
+    color: var(--texto-suave);
+    font-size: 14px;
+  }
+
+  .seccion {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    padding: 26px 30px;
+    margin-bottom: 22px;
+  }
+
+  .seccion h2 {
+    font-size: 17px;
+    color: var(--color);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+    line-height: 1.4;
+  }
+
+  .seccion p {
+    font-size: 14.5px;
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+    line-height: 1.75;
+  }
+
+  .seccion p:last-child { margin-bottom: 0; }
+
+  .seccion ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 12px;
+  }
+
+  .seccion ul li {
+    font-size: 14px;
+    color: var(--texto-suave);
+    padding-left: 24px;
+    position: relative;
+    margin-bottom: 12px;
+    line-height: 1.7;
+  }
+
+  .seccion ul li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .seccion ul li strong {
+    color: var(--texto);
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .destacado {
+    background: #eafaf1;
+    border-left: 4px solid #27ae60;
+    padding: 14px 18px;
+    border-radius: 8px;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #196f3d;
+    line-height: 1.7;
+  }
+
+  .destacado strong { color: #0e4d28; }
+
+  .destacado a {
+    color: #196f3d;
+    font-weight: 600;
+    word-break: break-all;
+    border-bottom: 2px dotted #196f3d;
+    text-decoration: none;
+  }
+
+  .destacado a:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 780px;
+    margin: 45px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  footer.pagina a:hover { border-bottom-style: solid; }
+
+  @media (max-width: 600px) {
+    body { padding: 25px 15px; }
+    .cabecera { flex-direction: column; text-align: center; padding: 22px 22px; }
+    .cabecera h1 { font-size: 19px; }
+    .seccion { padding: 22px 22px; }
+    .seccion h2 { font-size: 15.5px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina">
+
+  <a href="nodo3.html" class="volver">← Volver al Nodo 3</a>
+
+  <div class="cabecera">
+    <div class="icono">🤝</div>
+    <div>
+      <h1>Co-construcción colaborativa</h1>
+      <p>Trabajo en red, verificación compartida y corresponsabilidad ética</p>
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Grupo</span>
+    <h2>Qué es la co-construcción colaborativa</h2>
+    <p>La co-construcción colaborativa es el proceso por el cual un pequeño grupo elabora un <strong>artefacto de agencia transformadora colectivo</strong>. No se trata de dividir tareas y sumar resultados individuales: se trata de <strong>construir en red</strong>, compartiendo la huella de cada integrante, discutiendo los momentos historiográficos desde los que habla cada uno y verificando en conjunto lo que la IA aporta.</p>
+    <p>En términos conectivistas, el aprendizaje reside en el <strong>mantenimiento de conexiones</strong>: entre integrantes, entre lecturas, entre momentos historiográficos, entre artefactos digitales. La co-construcción no es la suma de partes: es la <strong>red que emerge</strong> de su puesta en común.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Qué se comparte en grupo</h2>
+    <ul>
+      <li><strong>La huella de cada integrante:</strong> qué artefactos usó, qué prompts formuló, qué conversaciones sostuvo con la IA.</li>
+      <li><strong>Los momentos historiográficos identificados:</strong> ¿desde qué momento habla cada integrante? ¿Desde el singular, el situado o los plurales?</li>
+      <li><strong>Los sesgos detectados:</strong> contraste de lo hallado individualmente, puesta en común de sesgos historiográficos y algorítmicos.</li>
+      <li><strong>Las omisiones detectadas:</strong> revisión conjunta de lo que la IA no dijo: voces subalternas, sujetos no occidentales, temporalidades no teleológicas.</li>
+      <li><strong>Las lecturas incorporadas:</strong> qué nuevas lecturas surgieron de la negociación crítica con la IA.</li>
+      <li><strong>El registro en Zotero:</strong> carpeta compartida con las interacciones de cada integrante, con <em>nota hija</em> y citación en Chicago.</li>
+    </ul>
+  </div>
+
+  <div class="seccion">
+    <h2>Cómo se verifica colaborativamente</h2>
+    <ul>
+      <li><strong>Contraste entre integrantes:</strong> cada uno presenta lo que detectó; el grupo verifica si hay coincidencias o divergencias.</li>
+      <li><strong>Contraste con fuentes de archivo:</strong> verificación conjunta en JSTOR, HathiTrust, Internet Archive, Persée, Redalyc, SciELO.</li>
+      <li><strong>Detección de «alucinaciones»:</strong> corresponsabilidad en la identificación de información falsa o inventada por la IA.</li>
+      <li><strong>Reformulación conjunta del prompt:</strong> cuando la IA mezcla momentos o no explicita la intención historiográfica.</li>
+      <li><strong>Registro del proceso:</strong> documentar en Zotero compartido qué se preguntó, qué se omitió, cómo se corrigió.</li>
+    </ul>
+
+    <div class="destacado">
+      <strong>En una frase:</strong> la co-construcción colaborativa es la red que emerge cuando cada integrante comparte su huella y el grupo verifica en conjunto lo que la IA aporta y lo que omite.
+    </div>
+  </div>
+
+  <div class="seccion">
+    <span class="etiqueta-clave">Ambiental</span>
+    <h2>Conciencia socio-ambiental</h2>
+    <p>El uso de IA tiene un costo energético. La responsabilidad digital incluye la <strong>eficiencia en las consultas</strong>: evitar redundancias, coordinar el grupo para no repetir la misma pregunta a la IA, y reconocer el impacto ambiental de los grandes modelos de lenguaje.</p>
+    <p>La conciencia socio-ambiental no es un añadido: es una dimensión de la <strong>agencia digital</strong>. Quien investiga decide no solo qué preguntar, sino también cuándo <strong>no</strong> preguntar, cuándo resolver en grupo sin recurrir a la IA y cuándo la consulta está justificada.</p>
+  </div>
+
+  <div class="seccion">
+    <h2>Nivel de exigencia</h2>
+    <p>Cada integrante debe registrar su huella en la carpeta compartida de Zotero, con <em>nota hija</em> que preserve la conversación íntegra. El grupo debe documentar al menos <strong>una verificación colaborativa</strong> de sesgos y omisiones, y <strong>una decisión conjunta</strong> sobre qué conservar y qué rechazar del texto de la IA.</p>
+
+    <div class="destacado">
+      <strong>Recuerda:</strong> sin verificación colaborativa, el artefacto colectivo se degrada en objeto digital. Con verificación, se convierte en un artefacto de agencia transformadora que reconoce la historiografía y sus momentos.
+    </div>
+  </div>
+
+  <div class="seccion">
+    <h2>Subpáginas relacionadas</h2>
+    <ul>
+      <li><a href="iaenzotero.html" class="enlace-subpagina">Ver la guía completa de IA en Zotero →</a></li>
+      <li><a href="sesgos.html" class="enlace-subpagina">Ver la guía completa de sesgos →</a></li>
+      <li><a href="omisiones.html" class="enlace-subpagina">Ver la guía completa de omisiones →</a></li>
+      <li><a href="intencion.html" class="enlace-subpagina">Ver la guía completa de intención historiográfica →</a></li>
+      <li><a href="lecturas.html" class="enlace-subpagina">Ver la guía completa de lecturas →</a></li>
+    </ul>
+  </div>
+
+  <footer class="pagina">
+    <a href="nodo3.html">Volver al Nodo 3</a> · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>

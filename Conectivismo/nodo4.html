@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nodo 4 · Diseminación transparente y socialización en el aula</title>
+<style>
+  :root {
+    --color: #c0392b;
+    --bg: #f7f9fc;
+    --card: #ffffff;
+    --texto: #2c3e50;
+    --texto-suave: #5d6d7e;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--texto);
+    line-height: 1.65;
+    padding: 40px 20px;
+  }
+
+  .pagina-nodo {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .volver {
+    display: inline-block;
+    margin-bottom: 24px;
+    color: var(--color);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+    padding-bottom: 2px;
+  }
+
+  .volver:hover { border-bottom-style: solid; }
+
+  .nodo-cabecera {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    border-top: 5px solid var(--color);
+    padding: 30px 34px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+
+  .nodo-cabecera .numero-grande {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 32px;
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .nodo-cabecera h1 {
+    font-size: 24px;
+    color: var(--color);
+    line-height: 1.3;
+  }
+
+  .nodo-cabecera .subtitulo {
+    font-size: 14px;
+    color: var(--texto-suave);
+    margin-top: 6px;
+  }
+
+  .grid-interno {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    overflow: hidden;
+  }
+
+  .columna {
+    padding: 24px 26px;
+    border-right: 1px solid #eef2f7;
+    border-bottom: 1px solid #eef2f7;
+  }
+
+  .columna:last-child { border-right: none; }
+
+  .columna h3 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: var(--color);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid color-mix(in srgb, var(--color) 25%, white);
+  }
+
+  .columna p, .columna li {
+    font-size: 13.5px;
+    color: var(--texto-suave);
+    line-height: 1.65;
+    margin-bottom: 8px;
+  }
+
+  .columna ul { list-style: none; padding: 0; }
+  .columna ul > li { padding-left: 18px; position: relative; }
+  .columna ul > li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .etiqueta-clave {
+    display: inline-block;
+    background: color-mix(in srgb, var(--color) 15%, white);
+    color: var(--color);
+    font-size: 10px;
+    font-weight: bold;
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-right: 5px;
+    text-transform: uppercase;
+    letter-spacing: 0.4px;
+    vertical-align: middle;
+  }
+
+  .principio-conectivista {
+    background: color-mix(in srgb, var(--color) 8%, white);
+    border-left: 3px solid var(--color);
+    padding: 10px 14px;
+    border-radius: 6px;
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin-top: 14px;
+    font-style: italic;
+  }
+
+  .principio-conectivista strong {
+    color: var(--color);
+    font-style: normal;
+  }
+
+  .pregunta {
+    background: color-mix(in srgb, var(--color) 6%, white);
+    border-left: 3px solid var(--color);
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-style: italic;
+    margin-bottom: 8px;
+    font-size: 13px;
+  }
+
+  .evidencia {
+    background: #fdedec;
+    border-left: 3px solid #c0392b;
+    padding: 10px 12px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    font-size: 13px;
+  }
+
+  .evidencia strong { color: #922b21; }
+
+  .insumo-bloque { margin-bottom: 18px; }
+
+  .insumo-bloque strong {
+    display: block;
+    color: var(--texto);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  .nota-interna {
+    font-size: 12.5px;
+    color: var(--texto-suave);
+    line-height: 1.55;
+    margin: 4px 0 0 0;
+    padding-left: 10px;
+    border-left: 2px solid color-mix(in srgb, var(--color) 30%, white);
+  }
+
+  .nota-interna em { color: var(--color); font-style: italic; font-weight: 600; }
+
+  .lecturas-conectadas {
+    list-style: none;
+    padding-left: 22px;
+    border-left: 2px dashed color-mix(in srgb, var(--color) 40%, white);
+    margin-left: 10px;
+  }
+
+  .lecturas-conectadas li {
+    font-size: 13px;
+    color: var(--texto-suave);
+    padding-left: 14px;
+    position: relative;
+    margin-bottom: 6px;
+  }
+
+  .lecturas-conectadas li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--color);
+    font-weight: bold;
+  }
+
+  .enlace-subpagina {
+    display: inline-block;
+    margin-top: 8px;
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 12.5px;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  .enlace-subpagina:hover { border-bottom-style: solid; }
+
+  footer.pagina {
+    max-width: 1200px;
+    margin: 60px auto 0;
+    text-align: center;
+    color: var(--texto-suave);
+    font-size: 13.5px;
+    padding-top: 25px;
+    border-top: 1px solid #e0e6ed;
+  }
+
+  footer.pagina a {
+    color: var(--color);
+    text-decoration: none;
+    font-weight: 600;
+    border-bottom: 2px dotted var(--color);
+  }
+
+  @media (max-width: 600px) {
+    .nodo-cabecera { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<div class="pagina-nodo">
+
+  <a href="index.html" class="volver">← Volver al índice</a>
+
+  <div class="nodo-cabecera">
+    <div class="numero-grande">4</div>
+    <div>
+      <h1>Diseminación transparente y socialización en el aula</h1>
+      <p class="subtitulo">Conectivismo, agencia transformadora y artefacto cultural</p>
+    </div>
+  </div>
+
+  <div class="grid-interno">
+
+    <!-- ===== COLUMNA 1 ===== -->
+    <div class="columna">
+      <h3>Red de conocimiento e insumos</h3>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Exposición</span>
+        <strong>Exposición oral</strong>
+        <p class="nota-interna">Presentación del artefacto de agencia transformadora ante el aula.</p>
+        <a href="diseminacion.html" class="enlace-subpagina">Ver la guía de diseminación →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Zotero</span>
+        <strong>Biblioteca compartida en Zotero</strong>
+        <p class="nota-interna">Carpeta pública con las interacciones de IA, las fuentes verificadas y las reflexiones sobre sesgos.</p>
+        <a href="iaenzotero.html" class="enlace-subpagina">Ver la guía completa de IA en Zotero →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Registro</span>
+        <strong>Registro de interacciones con las IA</strong>
+        <p class="nota-interna">Prompts, conversaciones, iteraciones y correcciones documentadas.</p>
+        <a href="conversacion.html" class="enlace-subpagina">Ver la guía de la conversación →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Lecturas</span>
+        <strong>Incorporación de nuevas lecturas</strong>
+        <p class="nota-interna">Bibliografía que emergió de la negociación crítica con la IA.</p>
+        <a href="lecturas.html" class="enlace-subpagina">Ver la guía completa de lecturas →</a>
+      </div>
+
+      <div class="principio-conectivista">
+        <strong>Principio conectivista:</strong> actualización y socialización del conocimiento en red.
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 2 ===== -->
+    <div class="columna">
+      <h3>Apertura, transparencia y socialización</h3>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Apertura</span>
+        <strong>Diseminación pública y clara</strong>
+        <p class="nota-interna">Exposición de los prompts, los diálogos completos y las fuentes en Zotero.</p>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Momentos</span>
+        <strong>Explicitación del momento historiográfico</strong>
+        <p class="nota-interna">Declarar desde qué momento se habla y con qué otros se entra en tensión.</p>
+        <a href="intencion.html" class="enlace-subpagina">Ver la guía de intención historiográfica →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Sesgos</span>
+        <strong>Reconocimiento de sesgos y omisiones</strong>
+        <p class="nota-interna">Qué se detectó, qué se corrigió, qué quedó pendiente.</p>
+        <a href="sesgos.html" class="enlace-subpagina">Ver la guía completa de sesgos →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Omisiones</span>
+        <strong>Reconstrucción de lo ausente</strong>
+        <p class="nota-interna">Cómo se subsanaron las omisiones algorítmicas en el artefacto final.</p>
+        <a href="omisiones.html" class="enlace-subpagina">Ver la guía completa de omisiones →</a>
+      </div>
+
+      <div class="insumo-bloque">
+        <span class="etiqueta-clave">Socialización</span>
+        <strong>Socialización pedagógica</strong>
+        <p class="nota-interna">Exposición de los aprendizajes sobre los temas del programa y sobre el uso crítico de la IA.</p>
+      </div>
+
+      <div class="principio-conectivista">
+        <strong>Principio conectivista:</strong> la soberanía cognitiva no se delega. La socialización hace público el recorrido de la negociación crítica.
+      </div>
+    </div>
+
+    <!-- ===== COLUMNA 3 ===== -->
+    <div class="columna">
+      <h3>Preguntas de autoevaluación</h3>
+      <div class="pregunta">¿Rendí cuenta de forma transparente de todas las herramientas e interacciones utilizadas mediante Zotero?</div>
+      <div class="pregunta">¿Puedo explicar a la clase cómo la IA nos ayudó a ampliar la investigación y en qué aspectos falló o presentó sesgos?</div>
+      <div class="pregunta">¿Explicités desde qué momento historiográfico habla mi artefacto?</div>
+      <div class="pregunta">¿Reconocí públicamente qué omisiones detecté y cómo las subsané?</div>
+      <div class="pregunta">¿Cómo integré las lecturas clásicas, de cátedra y actualizadas?</div>
+      <div class="pregunta">¿Compartí la carpeta pública de Zotero con la comunidad del aula?</div>
+    </div>
+
+    <!-- ===== COLUMNA 4 ===== -->
+    <div class="columna">
+      <h3>Evidencias e indicadores docentes</h3>
+      <div class="evidencia"><strong>Rigor de citado:</strong> carpeta de Zotero con citación completa de bibliografía e interacciones de IA según Chicago style.</div>
+      <div class="evidencia"><strong>Calidad oratoria:</strong> discurso que explicita la mediación sociotécnica ejercida.</div>
+      <div class="evidencia"><strong>Transparencia:</strong> apertura de prompts, conversaciones y fuentes.</div>
+      <div class="evidencia"><strong>Reconocimiento de momentos:</strong> explicitación del momento historiográfico desde el que habla el artefacto.</div>
+      <div class="evidencia"><strong>Socialización pedagógica:</strong> exposición de los aprendizajes sobre el tema y sobre el uso crítico de la IA.</div>
+    </div>
+
+  </div>
+
+  <footer class="pagina">
+    Nodo 4 · Co-trabajo con la IA: 4 nodos para aprender · <a href="index.html">Volver al índice</a>
+  </footer>
+
+</div>
+
+</body>
+</html>
